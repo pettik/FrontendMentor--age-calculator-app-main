@@ -32,6 +32,13 @@ body {
   margin: 0 auto;
 }
 
+.container {
+  opacity: 0.6;
+  background-color: var(--white);
+  max-width: 375px;
+  margin: 0 auto;
+}
+
 .attribution {
   display: none;
 }
