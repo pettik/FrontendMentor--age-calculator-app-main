@@ -37,8 +37,32 @@ body {
   background-color: var(--white);
   max-width: 375px;
   margin: 0 auto;
+  padding: 1rem; /* Add padding to create space inside the container */
+  box-sizing: border-box; /* Include padding in the container's width */
 }
 
+.datebox {
+  width: 100%; /* Use 100% width of the container */
+  display: flex;
+  flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
+  justify-content: space-between; /* Add space between input boxes */
+  gap: 1rem; /* Use gap property instead of column-gap for better browser support */
+}
+
+.input-box {
+  flex: 1; /* Distribute available space equally among input boxes */
+  max-width: calc(
+    33.33% - 1rem
+  ); /* Limit the maximum width of each input box */
+}
+
+/* Optional: Style the input elements */
+input[type='number'] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 .attribution {
   display: none;
 }
