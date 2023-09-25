@@ -39,7 +39,7 @@ body {
 .container {
   opacity: 0.6;
   background-color: var(--white);
-  max-width: 375px;
+  max-width: 345px;
   margin: 0 auto;
   margin-top: var(--margin-templ-top);
   padding: 1rem; /* Add padding to create space inside the container */
@@ -50,24 +50,44 @@ body {
   display: flex;
   flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
   justify-content: space-between; /* Add space between input boxes */
-  gap: 1rem; /* Use gap property instead of column-gap for better browser support */
+  column-gap: 0.25rem;
   text-transform: uppercase;
+  padding: 1.8rem 0.65rem;
+  font-size: 0.85rem;
 }
 
 .input-box {
   flex: 1; /* Distribute available space equally among input boxes */
   max-width: calc(
-    33.33% - 1rem
+    33.33% - 0.6rem
   ); /* Limit the maximum width of each input box */
 }
 
 /* Optional: Style the input elements */
 input[type='number'] {
   width: 100%;
-  padding: 0.5rem;
+  margin-top: 0.3rem;
+  padding: 0.8rem 0 0.8rem 0.85rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
+
+.middle {
+  position: relative;
+}
+.middle-line {
+  width: 90%;
+  height: 2.3rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 0.1rem solid gray;
+  padding: 0;
+}
+
 .attribution {
   display: none;
 }
