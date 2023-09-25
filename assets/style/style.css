@@ -38,7 +38,6 @@ body {
   max-width: 375px;
   margin: 0 auto;
   padding: 1rem; /* Add padding to create space inside the container */
-  box-sizing: border-box; /* Include padding in the container's width */
 }
 
 .datebox {
