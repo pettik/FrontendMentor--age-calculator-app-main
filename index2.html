@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" href="assets/style/style.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
+      :root {
+        --purple: hsl(259, 100%, 65%);
+        --light-red: hsl(0, 100%, 67%);
+        --white: hsl(0, 0%, 100%);
+        --off-white: hsl(0, 0%, 94%);
+        --light-grey: hsl(0, 0%, 86%);
+        --smokey-grey: hsl(0, 1%, 44%);
+        --off-black: hsl(0, 0%, 8%);
+
+        --margin-templ-top: 5.7rem;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        position: relative;
+        background-color: var(--off-white);
+        font-family: 'Poppins', sans-serif;
+      }
+      .template {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        background: url('../../design/mobile-design.jpg');
+        width: 375px;
+        height: 812px;
+        background-repeat: no-repeat;
+        margin: 0 auto;
+        margin-top: calc((var(--margin-templ-top)) * -1);
+      }
+
+      .container {
+        opacity: 0.6;
+        background-color: var(--white);
+        max-width: 345px;
+        margin: 0 auto;
+        margin-top: var(--margin-templ-top);
+        padding: 1rem; /* Add padding to create space inside the container */
+      }
+
+      .datebox {
+        width: 100%; /* Use 100% width of the container */
+        display: flex;
+        flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
+        justify-content: space-between; /* Add space between input boxes */
+        column-gap: 0.25rem;
+        text-transform: uppercase;
+        padding: 1.8rem 0.65rem;
+        font-size: 0.8rem;
+      }
+
+      .input-box {
+        flex: 1; /* Distribute available space equally among input boxes */
+        max-width: calc(
+          33.33% - 0.6rem
+        ); /* Limit the maximum width of each input box */
+      }
+
+      .input-box label {
+        padding-left: 0.05rem;
+      }
+
+      .input-box:nth-child(2) label {
+        padding-left: 0.1rem;
+      }
+      .input-box:nth-child(3) label {
+        padding-left: 0.3rem;
+      }
+
+      /* Optional: Style the input elements */
+      input[type='number'] {
+        width: 100%;
+        margin-top: 0.3rem;
+        padding: 0.8rem 0 0.8rem 0.85rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
+      .middle {
+        position: relative;
+      }
+      .middle-line {
+        width: 90%;
+        height: 2.3rem;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-bottom: 0.1rem solid gray;
+        padding: 0;
+      }
+
+      .middle .arrow {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, 7%);
+        background: var(--purple);
+        border-radius: 50%;
+
+        padding: 0.8rem;
+        width: 4rem;
+        transition: background 0.3s;
+      }
+
+      .middle-btn:hover .arrow {
+        background: var(--off-black);
+      }
+
+      .show-date {
+        font-size: 3.5rem;
+        line-height: 1.1;
+        margin-top: 6.2rem;
+        font-weight: 800;
+        font-style: italic;
+        padding-left: 0.5rem;
+      }
+
+      .show-date span {
+        color: var(--purple);
+      }
+
+      .attribution {
+        display: none;
+      }
+    </style>
+    <title>Frontend Mentor | Age calculator app</title>
+  </head>
+  <body>
+    <div class="template"></div>
+    <main>
+      <div class="container">
+        <div class="datebox">
+          <div class="input-box">
+            <label for="day">day</label>
+            <input type="number" id="day" placeholder="24" />
+          </div>
+          <div class="input-box">
+            <label for="month">month</label>
+            <input type="number" id="month" placeholder="09" />
+          </div>
+          <div class="input-box">
+            <label for="year">year</label>
+            <input type="number" id="year" placeholder="1984" />
+          </div>
+        </div>
+        <div class="middle">
+          <div class="middle-line"></div>
+          <a href="#" class="middle-btn"
+            ><img
+              src="assets/images/icon-arrow.svg"
+              alt="arrow img"
+              class="arrow"
+          /></a>
+        </div>
+        <div class="show-date">
+          <p class="years"><span>--</span> years</p>
+          <p class="months"><span>--</span> months</p>
+          <p class="days"><span>--</span> days</p>
+        </div>
+      </div>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="https://github.com/pettik">Petr Bednarski</a>.
+    </div>
+
+    <script></script>
+  </body>
+</html>
