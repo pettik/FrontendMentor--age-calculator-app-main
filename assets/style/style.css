@@ -10,6 +10,7 @@
   --off-black: hsl(0, 0%, 8%);
 
   --margin-templ-top: 5.7rem;
+  --margin-templ-top-desktop: 10.5rem;
 }
 * {
   margin: 0;
@@ -41,7 +42,6 @@ body {
   background-color: var(--white);
   border-radius: 1.5rem;
   border-bottom-right-radius: 6rem;
-  border: 2px solid red;
   max-width: 345px;
   margin: 0 auto;
   margin-top: var(--margin-templ-top);
@@ -140,7 +140,23 @@ input[type='number'] {
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    background-color: red;
+  .template {
+    background: url('../../design//desktop-completed.jpg');
+    width: 1440px;
+    height: 960px;
+    margin-top: calc((var(--margin-templ-top-desktop)) * -1);
+  }
+
+  .container {
+    opacity: 0.4;
+    border-radius: 1.5rem;
+    border-bottom-right-radius: 6rem;
+    border: 2px solid red;
+    min-width: 53rem;
+    margin: 0 auto;
+    margin-top: var(--margin-templ-top);
+    padding: 1.8rem; /* Add padding to create space inside the container */
+    /* min-height: 20rem; */
+    max-height: 34.2rem;
   }
 }
