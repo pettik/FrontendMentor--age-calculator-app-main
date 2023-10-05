@@ -159,4 +159,17 @@ input[type='number'] {
     /* min-height: 20rem; */
     max-height: 34.2rem;
   }
+
+  .middle .arrow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 7%);
+  background: var(--purple);
+  border-radius: 50%;
+
+  padding: 0.8rem;
+  width: 5rem;
+  transition: background 0.3s;
+  }
 }
