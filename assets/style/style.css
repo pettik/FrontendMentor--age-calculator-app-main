@@ -150,14 +150,13 @@ input[type='number'] {
   .container {
     opacity: 0.4;
     border-radius: 1.5rem;
-    border-bottom-right-radius: 6rem;
+    border-bottom-right-radius: 13rem;
     border: 2px solid red;
     min-width: 53rem;
     margin: 0 auto;
     margin-top: var(--margin-templ-top);
-    padding: 1.8rem; /* Add padding to create space inside the container */
-    /* min-height: 20rem; */
-    max-height: 34.2rem;
+    padding: 1.8rem;
+    max-height: 41rem;
   }
 
   .datebox {
@@ -167,8 +166,8 @@ input[type='number'] {
     justify-content: flex-start;
     column-gap: 2rem;
     text-transform: uppercase;
-    padding: 1.8rem 1.8rem;
-    font-size: 1rem;
+    padding: 1.8rem 1.8rem 0.9rem;
+    font-size: 0.9rem;
   }
 
   .input-box {
@@ -187,15 +186,16 @@ input[type='number'] {
   }
 
   .middle .arrow {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 7%);
-    background: var(--purple);
-    border-radius: 50%;
+    left: 90%;
+    transform: translate(-50%, -12%);
+    padding: 1.2rem;
+    width: 6rem;
+  }
 
-    padding: 0.8rem;
-    width: 5rem;
-    transition: background 0.3s;
+  .show-date {
+    font-size: 7rem;
+    margin-top: 5rem;
+    font-style: italic;
+    padding-left: 2rem;
   }
 }
