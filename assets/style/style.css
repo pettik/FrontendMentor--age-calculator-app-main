@@ -141,10 +141,11 @@ input[type='number'] {
 
 @media screen and (min-width: 768px) {
   .template {
-    background: url('../../design//desktop-completed.jpg');
+    background: url('../../design//desktop-error-empty.jpg');
     width: 1440px;
     height: 960px;
     margin-top: calc((var(--margin-templ-top-desktop)) * -1);
+    display: none;
   }
 
   .container {
@@ -170,6 +171,20 @@ input[type='number'] {
     font-size: 0.9rem;
   }
 
+  /* DATEBOX */
+  .datebox.red .input-box{
+    color:var(--light-red);
+  }
+  .datebox.red .error-message{
+    opacity: 1;
+  }
+
+  .datebox.red input[type='number'] {
+    border: 1px solid var(--light-red);
+  }
+
+  /* *************** */
+
   .input-box {
     flex: 1; /* Distribute available space equally among input boxes */
     max-width: 10rem;
@@ -183,6 +198,7 @@ input[type='number'] {
     border-radius: 0.5rem;
     font-size: 2.1rem;
     font-weight: 600;
+    outline:none;
   }
 
   .middle .arrow {
@@ -197,5 +213,14 @@ input[type='number'] {
     margin-top: 5rem;
     font-style: italic;
     padding-left: 2rem;
+    line-height: 1;
+  }
+
+  .error-message{
+    opacity: 0;
+    font-weight: normal;
+    font-style: italic;
+    text-transform:initial;
+    margin-top: .6rem;
   }
 }
