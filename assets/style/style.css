@@ -38,7 +38,7 @@ body {
 }
 
 .container {
-  opacity: 0.4;
+  /* opacity: 0.4; */
   background-color: var(--white);
   border-radius: 1.5rem;
   border-bottom-right-radius: 6rem;
@@ -149,10 +149,10 @@ input[type='number'] {
   }
 
   .container {
-    opacity: 0.4;
+    /* opacity: 0.4; */
     border-radius: 1.5rem;
     border-bottom-right-radius: 13rem;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     min-width: 53rem;
     margin: 0 auto;
     margin-top: var(--margin-templ-top);
