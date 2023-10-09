@@ -1,5 +1,10 @@
 'use strict';
 // Function to calculate age and update the display
+
+function setError(){
+
+}
+
 function calculateAge() {
   const birthDay = document.getElementById('day').value;
   const birthMonth = document.getElementById('month').value;
@@ -18,6 +23,13 @@ function calculateAge() {
   const days = Math.floor(
     (timeDiff % (30 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000)
   );
+
+  if(birthDate === '' || birthMonth === '' || birthYear === ''){
+    const errorMessage = document.querySelectorAll('.error-message');
+    errorMessage.forEach(el => {
+      el.style.opacity = 1;
+    });
+  }
 
   // Update the display
   document.querySelector('.years span').textContent = years;
