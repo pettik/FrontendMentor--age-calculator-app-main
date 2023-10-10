@@ -38,7 +38,7 @@ body {
 }
 
 .container {
-  /* opacity: 0.4; */
+  opacity: 0.4;
   background-color: var(--white);
   border-radius: 1.5rem;
   border-bottom-right-radius: 6rem;
@@ -68,6 +68,20 @@ body {
   ); /* Limit the maximum width of each input box */
 }
 
+/* input-box */
+.input-box.red {
+  color: var(--light-red);
+}
+.input-box.red .error-message {
+  opacity: 1;
+}
+
+.input-box.red input[type='number'] {
+  border: 1px solid var(--light-red);
+}
+
+/* *************** */
+
 .input-box label {
   padding-left: 0.05rem;
 }
@@ -89,15 +103,23 @@ input[type='number'] {
   font-size: 1.3rem;
   font-weight: 600;
 }
+.error-message {
+  opacity: 0;
+  padding-top: 0.4rem;
+  font-size: 0.5rem;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: initial;
+}
 
 .middle {
   position: relative;
 }
 .middle-line {
   width: 90%;
-  height: 2.3rem;
+  height: 1.5rem;
   position: absolute;
-  top: 0;
+  top: -0.5rem;
   left: 50%;
   transform: translateX(-50%);
   border-bottom: 0.1rem solid gray;
@@ -108,7 +130,7 @@ input[type='number'] {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translate(-50%, 7%);
+  transform: translate(-50%, -30%);
   background: var(--purple);
   border-radius: 50%;
 
@@ -145,19 +167,19 @@ input[type='number'] {
     width: 1440px;
     height: 960px;
     margin-top: calc((var(--margin-templ-top-desktop)) * -1);
-    display: none;
+    /* display: none; */
   }
 
   .container {
-    /* opacity: 0.4; */
+    opacity: 0.4;
     border-radius: 1.5rem;
     border-bottom-right-radius: 13rem;
-    /* border: 2px solid red; */
+    border: 2px solid red;
     min-width: 53rem;
     margin: 0 auto;
     margin-top: var(--margin-templ-top);
     padding: 1.8rem;
-    max-height: 41rem;
+    max-height: 43rem;
   }
 
   .datebox {
@@ -170,20 +192,6 @@ input[type='number'] {
     padding: 1.8rem 1.8rem 0.9rem;
     font-size: 0.9rem;
   }
-
-  /* DATEBOX */
-  .input-box.red {
-    color: var(--light-red);
-  }
-  .input-box.red .error-message {
-    opacity: 1;
-  }
-
-  .input-box.red input[type='number'] {
-    border: 1px solid var(--light-red);
-  }
-
-  /* *************** */
 
   .input-box {
     flex: 1; /* Distribute available space equally among input boxes */
@@ -217,10 +225,6 @@ input[type='number'] {
   }
 
   .error-message {
-    opacity: 0;
-    font-weight: normal;
-    font-style: italic;
-    text-transform: initial;
     margin-top: 0.6rem;
   }
 }
