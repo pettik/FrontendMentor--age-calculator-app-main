@@ -35,10 +35,11 @@ body {
   background-repeat: no-repeat;
   margin: 0 auto;
   margin-top: calc((var(--margin-templ-top)) * -1);
+  display:none;
 }
 
 .container {
-  opacity: 0.4;
+  /* opacity: 0.4; */
   background-color: var(--white);
   border-radius: 1.5rem;
   border-bottom-right-radius: 6rem;
@@ -146,7 +147,7 @@ input[type='number'] {
 .show-date {
   font-size: 3.45rem;
   line-height: 1.1;
-  margin-top: 6.2rem;
+  margin-top: 5rem;
   font-weight: 800;
   font-style: italic;
   padding-left: 0.5rem;
@@ -167,14 +168,13 @@ input[type='number'] {
     width: 1440px;
     height: 960px;
     margin-top: calc((var(--margin-templ-top-desktop)) * -1);
-    /* display: none; */
+
   }
 
   .container {
-    opacity: 0.4;
+    /* opacity: 0.4; */
     border-radius: 1.5rem;
     border-bottom-right-radius: 13rem;
-    border: 2px solid red;
     min-width: 53rem;
     margin: 0 auto;
     margin-top: var(--margin-templ-top);
@@ -200,7 +200,7 @@ input[type='number'] {
 
   input[type='number'] {
     width: 100%;
-    margin-top: 0.3rem;
+    margin-top: 0.5rem;
     padding: 1rem 0 1rem 1.3rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
@@ -209,6 +209,9 @@ input[type='number'] {
     outline: none;
   }
 
+  .middle-line {
+    height: 2.5rem;
+  }
   .middle .arrow {
     left: 90%;
     transform: translate(-50%, -12%);
@@ -224,7 +227,9 @@ input[type='number'] {
     line-height: 1;
   }
 
+ 
   .error-message {
-    margin-top: 0.6rem;
+    font-size: .9rem;
+    margin-top: 0.4rem;
   }
 }
