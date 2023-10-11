@@ -7,15 +7,31 @@ const errorMessageDay = document.getElementById('error-day');
 const errorMessageMonth = document.getElementById('error-month');
 const errorMessageYear = document.getElementById('error-year');
 
+let yearsSpan = document.querySelector('.years span');
+let monthsSpan =document.querySelector('.months span');
+let daysSpan = document.querySelector('.days span');
+
+let allOK = true;
+
 function setError(input, errorMessage, message) {
   input.parentElement.classList.add('red');
   errorMessage.textContent = message;
   errorMessage.style.opacity = '1';
+  allOK = false;
 }
+
+
 
 function clearError(input, errorMessage) {
   input.parentElement.classList.remove('red');
   errorMessage.style.opacity = '0';
+  allOK = true;
+}
+
+function clearTexts(){
+  yearsSpan.textContent= '--';
+  monthsSpan.textContent= '--';
+  daysSpan.textContent = '--';
 }
 
 function calculateAge() {
@@ -23,6 +39,8 @@ function calculateAge() {
   clearError(dayInput, errorMessageDay);
   clearError(monthInput, errorMessageMonth);
   clearError(yearInput, errorMessageYear);
+
+  clearTexts();
 
   const birthDay = parseInt(dayInput.value, 10);
   const birthMonth = parseInt(monthInput.value, 10);
@@ -54,25 +72,35 @@ function calculateAge() {
   }
 
   if (birthDay && birthMonth && birthYear) {
-    const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
-    const timeDiff = currentDate - birthDate;
-    const years = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
-    const months = Math.floor(
-      (timeDiff % (365.25 * 24 * 60 * 60 * 1000)) /
-        (30.44 * 24 * 60 * 60 * 1000)
-    );
-    const days = Math.floor(
-      (timeDiff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000)
-    );
 
-    document.querySelector('.years span').textContent = years;
-    document.querySelector('.months span').textContent = months;
-    document.querySelector('.days span').textContent = days;
-  }
+    if (allOK){
+      const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
+      const timeDiff = currentDate - birthDate;
+      const years = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
+      const months = Math.floor(
+        (timeDiff % (365.25 * 24 * 60 * 60 * 1000)) /
+          (30.44 * 24 * 60 * 60 * 1000)
+      );
+      const days = Math.floor(
+        (timeDiff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000)
+      );
+  
+      yearsSpan.textContent = years;
+      monthsSpan.textContent = months;
+      daysSpan.textContent  = days; 
+        }
+    }
+  
 }
 
 const button = document.querySelector('.middle-btn');
 button.addEventListener('click', e => {
   e.preventDefault(); // Prevent default behavior
   calculateAge();
+});
+
+window.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    calculateAge();
+  }
 });
