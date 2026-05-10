@@ -8,7 +8,7 @@ const errorMessageMonth = document.getElementById('error-month');
 const errorMessageYear = document.getElementById('error-year');
 
 let yearsSpan = document.querySelector('.years span');
-let monthsSpan =document.querySelector('.months span');
+let monthsSpan = document.querySelector('.months span');
 let daysSpan = document.querySelector('.days span');
 
 let allOK = true;
@@ -20,21 +20,21 @@ function setError(input, errorMessage, message) {
   allOK = false;
 }
 
-
-
 function clearError(input, errorMessage) {
   input.parentElement.classList.remove('red');
   errorMessage.style.opacity = '0';
-  allOK = true;
 }
+calculateAge;
 
-function clearTexts(){
-  yearsSpan.textContent= '--';
-  monthsSpan.textContent= '--';
+function clearTexts() {
+  yearsSpan.textContent = '--';
+  monthsSpan.textContent = '--';
   daysSpan.textContent = '--';
 }
 
 function calculateAge() {
+  allOK = true;
+
   // Reset errors first
   clearError(dayInput, errorMessageDay);
   clearError(monthInput, errorMessageMonth);
@@ -49,48 +49,60 @@ function calculateAge() {
   const currentYear = currentDate.getFullYear();
 
   // Check empty fields
-  if (!birthDay) setError(dayInput, errorMessageDay, 'This field is required');
-  if (!birthMonth)
-    setError(monthInput, errorMessageMonth, 'This field is required');
-  if (!birthYear)
-    setError(yearInput, errorMessageYear, 'This field is required');
-
-  // Validate day based on month
-  const maxDaysInMonth = new Date(birthYear, birthMonth, 0).getDate();
-  if (birthDay < 1 || birthDay > maxDaysInMonth) {
-    setError(dayInput, errorMessageDay, 'Must be a valid day');
+  if (Number.isNaN(birthDay)) {
+    setError(dayInput, errorMessageDay, 'This field is required');
   }
 
-  // Validate month (1-12)
-  if (birthMonth < 1 || birthMonth > 12) {
+  if (Number.isNaN(birthMonth)) {
+    setError(monthInput, errorMessageMonth, 'This field is required');
+  }
+
+  if (Number.isNaN(birthYear)) {
+    setError(yearInput, errorMessageYear, 'This field is required');
+  }
+
+  // Validate month
+  if (!Number.isNaN(birthMonth) && (birthMonth < 1 || birthMonth > 12)) {
     setError(monthInput, errorMessageMonth, 'Must be a valid month');
   }
 
-  // Validate year (0-currentYear)
-  if (birthYear <= 0 || birthYear > currentYear) {
+  // Validate year
+  if (!Number.isNaN(birthYear) && (birthYear <= 0 || birthYear > currentYear)) {
     setError(yearInput, errorMessageYear, 'Must be in the past');
   }
 
-  if (birthDay && birthMonth && birthYear) {
+  // Validate day only when day, month and year are usable
+  const isDayFilled = !Number.isNaN(birthDay);
+  const isMonthValid =
+    !Number.isNaN(birthMonth) && birthMonth >= 1 && birthMonth <= 12;
+  const isYearValid =
+    !Number.isNaN(birthYear) && birthYear > 0 && birthYear <= currentYear;
 
-    if (allOK){
-      const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
-      const timeDiff = currentDate - birthDate;
-      const years = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
-      const months = Math.floor(
-        (timeDiff % (365.25 * 24 * 60 * 60 * 1000)) /
-          (30.44 * 24 * 60 * 60 * 1000)
-      );
-      const days = Math.floor(
-        (timeDiff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000)
-      );
-  
-      yearsSpan.textContent = years;
-      monthsSpan.textContent = months;
-      daysSpan.textContent  = days; 
-        }
+  if (isDayFilled && isMonthValid && isYearValid) {
+    const maxDaysInMonth = new Date(birthYear, birthMonth, 0).getDate();
+
+    if (birthDay < 1 || birthDay > maxDaysInMonth) {
+      setError(dayInput, errorMessageDay, 'Must be a valid day');
     }
-  
+  }
+
+  if (allOK) {
+    const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
+    const timeDiff = currentDate - birthDate;
+
+    const years = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
+    const months = Math.floor(
+      (timeDiff % (365.25 * 24 * 60 * 60 * 1000)) /
+        (30.44 * 24 * 60 * 60 * 1000),
+    );
+    const days = Math.floor(
+      (timeDiff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000),
+    );
+
+    yearsSpan.textContent = years;
+    monthsSpan.textContent = months;
+    daysSpan.textContent = days;
+  }
 }
 
 const button = document.querySelector('.middle-btn');
