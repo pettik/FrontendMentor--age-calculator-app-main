@@ -24,7 +24,6 @@ function clearError(input, errorMessage) {
   input.parentElement.classList.remove('red');
   errorMessage.style.opacity = '0';
 }
-calculateAge;
 
 function clearTexts() {
   yearsSpan.textContent = '--';
