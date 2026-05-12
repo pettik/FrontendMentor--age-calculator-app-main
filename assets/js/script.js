@@ -107,8 +107,8 @@ function calculateAge() {
 }
 
 const button = document.querySelector(".middle-btn");
-button.addEventListener("click", (e) => {
-  e.preventDefault(); // Prevent default behavior
+
+button.addEventListener("click", () => {
   calculateAge();
 });
 
