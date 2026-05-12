@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,18 +22,39 @@
         <div class="datebox">
           <div class="input-box">
             <label for="day">day</label>
-            <input type="number" id="day" placeholder="DD" />
-            <p class="error-message" id="error-day">This field is required</p>
+            <input
+              type="number"
+              id="day"
+              placeholder="DD"
+              aria-describedby="error-day"
+            />
+            <p class="error-message" id="error-day" aria-live="polite">
+              This field is required
+            </p>
           </div>
           <div class="input-box">
             <label for="month">month</label>
-            <input type="number" id="month" placeholder="MM" />
-            <p class="error-message" id="error-month">This field is required</p>
+            <input
+              type="number"
+              id="month"
+              placeholder="MM"
+              aria-describedby="error-month"
+            />
+            <p class="error-message" id="error-month" aria-live="polite">
+              This field is required
+            </p>
           </div>
           <div class="input-box">
             <label for="year">year</label>
-            <input type="number" id="year" placeholder="YYYY" />
-            <p class="error-message" id="error-year">This field is required</p>
+            <input
+              type="number"
+              id="year"
+              placeholder="YYYY"
+              aria-describedby="error-year"
+            />
+            <p class="error-message" id="error-year" aria-live="polite">
+              This field is required
+            </p>
           </div>
         </div>
         <div class="middle">

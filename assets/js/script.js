@@ -1,34 +1,36 @@
-'use strict';
+"use strict";
 
-const dayInput = document.getElementById('day');
-const monthInput = document.getElementById('month');
-const yearInput = document.getElementById('year');
-const errorMessageDay = document.getElementById('error-day');
-const errorMessageMonth = document.getElementById('error-month');
-const errorMessageYear = document.getElementById('error-year');
+const dayInput = document.getElementById("day");
+const monthInput = document.getElementById("month");
+const yearInput = document.getElementById("year");
+const errorMessageDay = document.getElementById("error-day");
+const errorMessageMonth = document.getElementById("error-month");
+const errorMessageYear = document.getElementById("error-year");
 
-let yearsSpan = document.querySelector('.years span');
-let monthsSpan = document.querySelector('.months span');
-let daysSpan = document.querySelector('.days span');
+let yearsSpan = document.querySelector(".years span");
+let monthsSpan = document.querySelector(".months span");
+let daysSpan = document.querySelector(".days span");
 
 let allOK = true;
 
 function setError(input, errorMessage, message) {
-  input.parentElement.classList.add('red');
+  input.parentElement.classList.add("red");
+  input.setAttribute("aria-invalid", "true");
   errorMessage.textContent = message;
-  errorMessage.style.opacity = '1';
+  errorMessage.style.opacity = "1";
   allOK = false;
 }
 
 function clearError(input, errorMessage) {
-  input.parentElement.classList.remove('red');
-  errorMessage.style.opacity = '0';
+  input.parentElement.classList.remove("red");
+  input.setAttribute("aria-invalid", "false");
+  errorMessage.style.opacity = "0";
 }
 
 function clearTexts() {
-  yearsSpan.textContent = '--';
-  monthsSpan.textContent = '--';
-  daysSpan.textContent = '--';
+  yearsSpan.textContent = "--";
+  monthsSpan.textContent = "--";
+  daysSpan.textContent = "--";
 }
 
 function calculateAge() {
@@ -49,25 +51,25 @@ function calculateAge() {
 
   // Check empty fields
   if (Number.isNaN(birthDay)) {
-    setError(dayInput, errorMessageDay, 'This field is required');
+    setError(dayInput, errorMessageDay, "This field is required");
   }
 
   if (Number.isNaN(birthMonth)) {
-    setError(monthInput, errorMessageMonth, 'This field is required');
+    setError(monthInput, errorMessageMonth, "This field is required");
   }
 
   if (Number.isNaN(birthYear)) {
-    setError(yearInput, errorMessageYear, 'This field is required');
+    setError(yearInput, errorMessageYear, "This field is required");
   }
 
   // Validate month
   if (!Number.isNaN(birthMonth) && (birthMonth < 1 || birthMonth > 12)) {
-    setError(monthInput, errorMessageMonth, 'Must be a valid month');
+    setError(monthInput, errorMessageMonth, "Must be a valid month");
   }
 
   // Validate year
   if (!Number.isNaN(birthYear) && (birthYear <= 0 || birthYear > currentYear)) {
-    setError(yearInput, errorMessageYear, 'Must be in the past');
+    setError(yearInput, errorMessageYear, "Must be in the past");
   }
 
   // Validate day only when day, month and year are usable
@@ -81,7 +83,7 @@ function calculateAge() {
     const maxDaysInMonth = new Date(birthYear, birthMonth, 0).getDate();
 
     if (birthDay < 1 || birthDay > maxDaysInMonth) {
-      setError(dayInput, errorMessageDay, 'Must be a valid day');
+      setError(dayInput, errorMessageDay, "Must be a valid day");
     }
   }
 
@@ -104,14 +106,14 @@ function calculateAge() {
   }
 }
 
-const button = document.querySelector('.middle-btn');
-button.addEventListener('click', e => {
+const button = document.querySelector(".middle-btn");
+button.addEventListener("click", (e) => {
   e.preventDefault(); // Prevent default behavior
   calculateAge();
 });
 
-window.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
+window.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
     calculateAge();
   }
 });
