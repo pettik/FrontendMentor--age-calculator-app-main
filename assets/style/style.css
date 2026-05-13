@@ -23,20 +23,6 @@ body {
   background-color: var(--off-white);
   font-family: "Poppins", sans-serif;
 }
-.template {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: url("../../design/mobile-design.jpg");
-  width: 23.4375rem;
-  height: 50.75rem;
-  background-repeat: no-repeat;
-  margin: 0 auto;
-  margin-top: calc((var(--margin-templ-top)) * -1);
-  display: none;
-}
 
 .container {
   /* opacity: 0.4; */
@@ -173,13 +159,6 @@ input[type="number"] {
 }
 
 @media screen and (min-width: 48rem) {
-  .template {
-    background: url("../../design//desktop-error-empty.jpg");
-    width: 90rem;
-    height: 60rem;
-    margin-top: calc((var(--margin-templ-top-desktop)) * -1);
-  }
-
   .container {
     /* opacity: 0.4; */
     border-radius: 1.5rem;
