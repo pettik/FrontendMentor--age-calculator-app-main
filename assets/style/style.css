@@ -144,6 +144,12 @@ input[type="number"] {
   background: var(--off-black);
 }
 
+.middle-btn:focus-visible .arrow {
+  outline: 3px solid var(--off-black);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px hsla(259, 100%, 65%, 0.25);
+}
+
 .middle-btn {
   border: 0;
   padding: 0;
