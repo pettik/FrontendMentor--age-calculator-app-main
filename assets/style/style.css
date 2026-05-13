@@ -30,8 +30,8 @@ body {
   left: 50%;
   transform: translateX(-50%);
   background: url("../../design/mobile-design.jpg");
-  width: 375px;
-  height: 812px;
+  width: 23.4375rem;
+  height: 50.75rem;
   background-repeat: no-repeat;
   margin: 0 auto;
   margin-top: calc((var(--margin-templ-top)) * -1);
@@ -43,7 +43,7 @@ body {
   background-color: var(--white);
   border-radius: 1.5rem;
   border-bottom-right-radius: 6rem;
-  max-width: 345px;
+  max-width: 21.5625rem;
   margin: 0 auto;
   margin-top: var(--margin-templ-top);
   padding: 1rem; /* Add padding to create space inside the container */
@@ -75,7 +75,7 @@ body {
 }
 
 .input-box.red input[type="number"] {
-  border: 1px solid var(--light-red);
+  border: 0.0625rem solid var(--light-red);
 }
 
 /* *************** */
@@ -96,8 +96,8 @@ input[type="number"] {
   width: 100%;
   margin-top: 0.3rem;
   padding: 0.8rem 0 0.8rem 0.85rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
   font-size: 1.3rem;
   font-weight: 600;
 }
@@ -142,9 +142,9 @@ input[type="number"] {
 }
 
 .middle-btn:focus-visible .arrow {
-  outline: 3px solid var(--off-black);
-  outline-offset: 4px;
-  box-shadow: 0 0 0 6px hsla(259, 100%, 65%, 0.25);
+  outline: 0.1875rem solid var(--off-black);
+  outline-offset: 0.25rem;
+  box-shadow: 0 0 0 0.375rem hsla(259, 100%, 65%, 0.25);
 }
 
 .middle-btn {
@@ -172,11 +172,11 @@ input[type="number"] {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 48rem) {
   .template {
     background: url("../../design//desktop-error-empty.jpg");
-    width: 1440px;
-    height: 960px;
+    width: 90rem;
+    height: 60rem;
     margin-top: calc((var(--margin-templ-top-desktop)) * -1);
   }
 
@@ -192,9 +192,9 @@ input[type="number"] {
   }
 
   .datebox {
-    width: 100%; /* Use 100% width of the container */
+    width: 100%;
     display: flex;
-    flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
+    flex-wrap: wrap;
     justify-content: flex-start;
     column-gap: 2rem;
     text-transform: uppercase;
@@ -203,23 +203,23 @@ input[type="number"] {
   }
 
   .input-box {
-    flex: 1; /* Distribute available space equally among input boxes */
+    flex: 1;
     max-width: 10rem;
   }
   input[type="number"] {
     width: 100%;
     margin-top: 0.5rem;
     padding: 1rem 0 1rem 1.3rem;
-    border: 1px solid #ccc;
+    border: 0.0625rem solid #ccc;
     border-radius: 0.5rem;
     font-size: 2.1rem;
     font-weight: 600;
   }
 
   input[type="number"]:focus-visible {
-    outline: 3px solid var(--purple);
-    outline-offset: 3px;
-    box-shadow: 0 0 0 4px hsla(259, 100%, 65%, 0.2);
+    outline: 0.1875rem solid var(--purple);
+    outline-offset: 0.1875rem;
+    box-shadow: 0 0 0 0.25rem hsla(259, 100%, 65%, 0.2);
   }
 
   .middle-line {

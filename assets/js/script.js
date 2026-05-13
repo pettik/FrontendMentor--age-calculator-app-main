@@ -7,9 +7,12 @@ const errorMessageDay = document.getElementById("error-day");
 const errorMessageMonth = document.getElementById("error-month");
 const errorMessageYear = document.getElementById("error-year");
 
-let yearsSpan = document.querySelector(".years span");
-let monthsSpan = document.querySelector(".months span");
-let daysSpan = document.querySelector(".days span");
+const yearsSpan = document.querySelector(".years span");
+const monthsSpan = document.querySelector(".months span");
+const daysSpan = document.querySelector(".days span");
+
+const inputs = [dayInput, monthInput, yearInput];
+const button = document.querySelector(".middle-btn");
 
 let allOK = true;
 
@@ -113,14 +116,14 @@ function calculateAge() {
   }
 }
 
-const button = document.querySelector(".middle-btn");
-
 button.addEventListener("click", () => {
   calculateAge();
 });
 
-window.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    calculateAge();
-  }
+inputs.forEach((input) => {
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      calculateAge();
+    }
+  });
 });
