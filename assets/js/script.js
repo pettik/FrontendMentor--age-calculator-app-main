@@ -17,14 +17,13 @@ function setError(input, errorMessage, message) {
   input.parentElement.classList.add("red");
   input.setAttribute("aria-invalid", "true");
   errorMessage.textContent = message;
-  errorMessage.style.opacity = "1";
   allOK = false;
 }
 
 function clearError(input, errorMessage) {
   input.parentElement.classList.remove("red");
   input.setAttribute("aria-invalid", "false");
-  errorMessage.style.opacity = "0";
+  errorMessage.textContent = "";
 }
 
 function clearTexts() {

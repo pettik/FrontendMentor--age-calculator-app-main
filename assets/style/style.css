@@ -73,9 +73,6 @@ body {
 .input-box.red {
   color: var(--light-red);
 }
-.input-box.red .error-message {
-  opacity: 1;
-}
 
 .input-box.red input[type="number"] {
   border: 1px solid var(--light-red);
@@ -105,7 +102,7 @@ input[type="number"] {
   font-weight: 600;
 }
 .error-message {
-  opacity: 0;
+  min-height: 1rem;
   padding-top: 0.4rem;
   font-size: 0.5rem;
   font-weight: normal;
