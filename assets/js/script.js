@@ -85,19 +85,27 @@ function calculateAge() {
       setError(dayInput, errorMessageDay, "Must be a valid day");
     }
   }
-
   if (allOK) {
-    const birthDate = new Date(birthYear, birthMonth - 1, birthDay);
-    const timeDiff = currentDate - birthDate;
+    let years = currentDate.getFullYear() - birthYear;
+    let months = currentDate.getMonth() + 1 - birthMonth;
+    let days = currentDate.getDate() - birthDay;
 
-    const years = Math.floor(timeDiff / (365.25 * 24 * 60 * 60 * 1000));
-    const months = Math.floor(
-      (timeDiff % (365.25 * 24 * 60 * 60 * 1000)) /
-        (30.44 * 24 * 60 * 60 * 1000),
-    );
-    const days = Math.floor(
-      (timeDiff % (30.44 * 24 * 60 * 60 * 1000)) / (24 * 60 * 60 * 1000),
-    );
+    if (days < 0) {
+      months--;
+
+      const previousMonth = new Date(
+        currentDate.getFullYear(),
+        currentDate.getMonth(),
+        0,
+      );
+
+      days += previousMonth.getDate();
+    }
+
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
 
     yearsSpan.textContent = years;
     monthsSpan.textContent = months;
